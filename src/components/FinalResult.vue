@@ -278,11 +278,6 @@ export default {
         modalActive() {
             return this.isActiveFinal;
         },
-        resultCount() {
-            if (this.playerOneFinal.points < 0) {
-                return this.playerTwoFinal;
-            } else return this.playerOneFinal;
-        },
     },
 };
 </script>
