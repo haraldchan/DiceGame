@@ -20,12 +20,11 @@
 import { mapState } from "vuex";
 export default {
     name: "GameOver",
-    props: ["isActiveGameOver"],
+    props: ["isActiveGameOver",'resetModals'],
     methods: {
         reset() {
             this.$store.commit("gameReset");
-            this.$emit("toggle", "GameOver");
-            this.$emit("toggle", "WinLose");
+            this.$emit("resetModals")
         },
         showFinalResult() {
             this.$emit("toggle", "Final");
