@@ -7,7 +7,7 @@
                 id="sb-step"
                 v-model="status.bet"
                 min="100"
-                max="5000"
+                :max="status.points"
                 step="100"
                 size="lg"
                 block
@@ -37,10 +37,6 @@ export default {
     },
     methods: {
         rollCard() {
-            if (this.status.bet > this.status.points) {
-                alert("点がたりねぇじゃないか！！");
-                return;
-            }
             this.turnDisable = true;
             this.$emit("rollApp");
             setTimeout(() => {
