@@ -115,7 +115,7 @@
                                         <div class="row between"></div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">5 倍づけ</div>
+                                <div class="rate-info toppan">5 倍づけ、即勝ち</div>
                             </li>
                             <!-- ゾロ目 -->
                             <li>
@@ -164,7 +164,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">3 倍づけ</div>
+                                <div class="rate-info toppan">3 倍づけ、即勝ち</div>
                             </li>
                             <!-- シゴロ -->
                             <li>
@@ -209,7 +209,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">2 倍づけ</div>
+                                <div class="rate-info toppan">2 倍づけ、即勝ち</div>
                             </li>
                             <!-- divider -->
                             <li
@@ -357,7 +357,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">2 倍払い</div>
+                                <div class="rate-info toppan">2 倍払い、即負け</div>
                             </li>
                         </ul>
                     </div>
@@ -411,7 +411,8 @@
             <GameOver
                 :isActiveGameOver="isActiveGameOver"
                 @toggle="toggle"
-            ></GameOver>
+                @resetModals="resetModals"
+                ></GameOver>
             <!-- Final's result -->
             <FinalResult
                 :isActiveFinal="isActiveFinal"
@@ -727,6 +728,9 @@ export default {
                     break;
             }
         },
+        resetModals(){
+            this.isActiveWinLose = this.isActiveVersus = this.isActiveGameOver = false
+        },
         detameCount() {
             if (this.turnResult.displayData.length === 1) {
                 if (this.turnResult.player === "Player 1") {
@@ -761,7 +765,7 @@ export default {
         },
     },
     watch: {
-        playerOneStatus(val) {
+        playerOnePoints(val) {
             if (val <= 0) {
                 // Active GameOver modal when point depleted.
                 this.isActiveGameOver = !this.isActiveGameOver;
@@ -875,33 +879,40 @@ ul {
     display: flex;
     flex-direction: column;
 }
+
 .modal-body li {
     display: flex;
     height: 50px;
     justify-content: flex-start;
     line-height: 50px;
 }
+
 .modal-body dice-type {
     display: flex;
 }
+
 .title {
     font-family: "Toppan Bunkyu Midashi Mincho";
     font-weight: bolder;
     width: 100px;
     font-size: 20px;
 }
+
 .rate-info {
     margin-left: 140px;
     font-size: 20px;
 }
+
 .dice-type {
     position: relative;
     left: -60px;
     top: -50px;
 }
+
 .dice-type .dice-box:nth-child(2) {
     left: 40px;
 }
+
 .dice-type .dice-box:nth-child(3) {
     left: 80px;
 }
