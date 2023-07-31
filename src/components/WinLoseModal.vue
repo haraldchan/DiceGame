@@ -195,15 +195,6 @@ export default {
     align-items: center;
 }
 
-/*
-.detame .dice-box {
-    position: absolute;
-    transform: scale(0.5, 0.5);
-    margin: 0;
-
-
-}
-*/
 .detame .db:nth-child(2) {
     top: 0px;
     position: absolute;
