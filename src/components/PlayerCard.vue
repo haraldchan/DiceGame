@@ -28,9 +28,9 @@
 <script>
 export default {
     name: "PlayerCard",
+    props: ['playerName'],
     data() {
         return {
-            playerName: "Player 1",
             turnDisable: false,
             result: [],
         };
