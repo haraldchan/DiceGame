@@ -37,6 +37,10 @@ export default {
     },
     methods: {
         rollCard() {
+            if (this.status.bet > this.status.points) {
+                alert('点がたりねぇじゃないか！！')
+                return
+            }
             this.turnDisable = true;
             this.$emit("rollApp");
             setTimeout(() => {
