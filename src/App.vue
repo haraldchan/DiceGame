@@ -115,7 +115,9 @@
                                         <div class="row between"></div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">5 倍づけ、即勝ち</div>
+                                <div class="rate-info toppan">
+                                    5 倍づけ、即勝ち
+                                </div>
                             </li>
                             <!-- ゾロ目 -->
                             <li>
@@ -164,7 +166,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">3 倍づけ、即勝ち</div>
+                                <div class="rate-info toppan">
+                                    3 倍づけ、即勝ち
+                                </div>
                             </li>
                             <!-- シゴロ -->
                             <li>
@@ -209,7 +213,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">2 倍づけ、即勝ち</div>
+                                <div class="rate-info toppan">
+                                    2 倍づけ、即勝ち
+                                </div>
                             </li>
                             <!-- divider -->
                             <li
@@ -357,7 +363,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rate-info toppan">2 倍払い、即負け</div>
+                                <div class="rate-info toppan">
+                                    2 倍払い、即負け
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -386,8 +394,15 @@
                 class="box"
                 style="margin-top: 20px; padding: 20px; height: 350px"
             >
-                <PlayerCard ref="player1" @rollApp="rollApp"></PlayerCard>
-                <PlayerCard ref="player2" @rollApp="rollApp"></PlayerCard>
+                <PlayerCard
+                    :playerName="'Player 1'"
+                    @rollApp="rollApp"
+                ></PlayerCard>
+                <div style="width: 0px; height: 100%; border: 0.5px solid gray"></div>
+                <PlayerCard
+                    :playerName="'Player 2'"
+                    @rollApp="rollApp"
+                ></PlayerCard>
             </div>
             <!-- mask -->
             <div
@@ -412,7 +427,7 @@
                 :isActiveGameOver="isActiveGameOver"
                 @toggle="toggle"
                 @resetModals="resetModals"
-                ></GameOver>
+            ></GameOver>
             <!-- Final's result -->
             <FinalResult
                 :isActiveFinal="isActiveFinal"
@@ -723,13 +738,13 @@ export default {
                     break;
                 case "Jumbo":
                     this.jumboDismiss = true;
-                    this.$refs.player1.playerName = "Player 1";
-                    this.$refs.player2.playerName = "Player 2";
                     break;
             }
         },
-        resetModals(){
-            this.isActiveWinLose = this.isActiveVersus = this.isActiveGameOver = false
+        resetModals() {
+            this.isActiveWinLose =
+            this.isActiveVersus =
+            this.isActiveGameOver = false;
         },
         detameCount() {
             if (this.turnResult.displayData.length === 1) {
