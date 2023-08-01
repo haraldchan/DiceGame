@@ -8,7 +8,7 @@
                 <div>P1</div>
                 <div>P2</div>
             </div>
-            <ul>
+            <ul style="padding-left:0">
                 <!-- ピンゾロ -->
                 <li>
                     <div class="title">ピンゾロ</div>
@@ -352,19 +352,22 @@ export default {
 /* === 通算 === */
 .players{
     display: flex;
+    margin:0 auto;
+    padding-right: 15px;
+    width: 500px;
     justify-content: flex-end;
     font-size: 25px;
     border-bottom: #999 1px solid;
 }
 
-.players div{
-    margin-right:45px
+.players div:first-child{
+    margin-right:50px;
 }
 
 .final-result {
     display: none;
     position: absolute;
-    padding: 30px 30px 30px 0;
+    padding: 30px 0;
     top: 10vh;
     width: 600px;
     height: 680px;
@@ -425,9 +428,9 @@ export default {
 }
 .dismiss {
     position: relative;
-    left: 240px;
+    left: 50%;
     margin-top: 40px;
-    margin-left: -10%;
+    margin-left: -72.5px;
     width: 145px;
     height: 50px;
     line-height: 30px;
